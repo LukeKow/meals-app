@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/category_meals_screen.dart';
 
 import './categories_screen.dart';
 
@@ -26,13 +27,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DeliMeals',
-      theme: theme.copyWith(
-        colorScheme: theme.colorScheme.copyWith(
-          secondary: Colors.pink.shade900,
+        title: 'DeliMeals',
+        theme: theme.copyWith(
+          colorScheme: theme.colorScheme.copyWith(
+            secondary: Colors.pink.shade900,
+          ),
         ),
-      ),
-      home: const CategoriesScreen(),
-    );
+        home: const CategoriesScreen(),
+        routes: {
+          CategoryMealsScreen.route: (ctx) => const CategoryMealsScreen(),
+        });
   }
 }
