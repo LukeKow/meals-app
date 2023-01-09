@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './dummy_data.dart';
 
 class CategoryMealsScreenArguments {
   CategoryMealsScreenArguments({required this.id, required this.title});
@@ -7,15 +8,6 @@ class CategoryMealsScreenArguments {
 }
 
 class CategoryMealsScreen extends StatelessWidget {
-  // final String categoryId;
-  // final String categoryTitle;
-
-  // const CategoryMealsScreen(
-  //   this.categoryId,
-  //   this.categoryTitle, {
-  //   super.key,
-  // });
-
   static const String route = '/category-meals';
 
   const CategoryMealsScreen({super.key});
@@ -24,12 +16,19 @@ class CategoryMealsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final routeArgs = ModalRoute.of(context)!.settings.arguments
         as CategoryMealsScreenArguments;
+    final categoryMeals = dummyMeals.where((meal) {
+      return meal.categories.contains(routeArgs.id);
+    }).toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(routeArgs.title),
       ),
-      body: const Center(
-        child: Text('The Recipes For The Category'),
+      body: ListView.builder(
+        itemBuilder: (ctx, index) {
+          return Text(categoryMeals[index].title);
+        },
+        itemCount: categoryMeals.length,
       ),
     );
   }
