@@ -28,16 +28,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'DeliMeals',
-        theme: theme.copyWith(
-          colorScheme: theme.colorScheme.copyWith(
-            secondary: Colors.pink.shade900,
-          ),
+      title: 'DeliMeals',
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(
+          secondary: Colors.pink.shade900,
         ),
-        home: const CategoriesScreen(),
-        routes: {
-          CategoryMealsScreen.route: (ctx) => const CategoryMealsScreen(),
-          MealDetailsScreen.route: (ctx) => const MealDetailsScreen(),
-        });
+      ),
+      home: const CategoriesScreen(),
+      routes: {
+        CategoryMealsScreen.route: (ctx) => const CategoryMealsScreen(),
+        MealDetailsScreen.route: (ctx) => const MealDetailsScreen(),
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (ctx) => const CategoriesScreen());
+      },
+    );
   }
 }
