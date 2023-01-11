@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_color_generator/material_color_generator.dart';
 
 import './screens/meal_details_screen.dart';
 import './screens/category_meals_screen.dart';
@@ -9,15 +10,15 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   MyApp({super.key});
   final ThemeData theme = ThemeData(
-      primarySwatch: Colors.green,
-      canvasColor: const Color.fromRGBO(255, 254, 229, 1),
+      primarySwatch: generateMaterialColor(color: const Color(0xFF52B04C)),
+      canvasColor: const Color(0xFFF1FFF0),
       fontFamily: 'Raleway',
       textTheme: ThemeData.light().textTheme.copyWith(
             bodyText1: const TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
+              color: Color(0xFFF1FFF0),
             ),
             bodyText2: const TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
+              color: Color(0xFFB39996),
             ),
             headline6: const TextStyle(
               fontSize: 20,
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       title: 'DeliMeals',
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
-          secondary: Colors.pink.shade900,
+          secondary: const Color(0xFFFC6753),
         ),
       ),
       home: const CategoriesScreen(),
