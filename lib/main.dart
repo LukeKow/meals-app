@@ -4,6 +4,7 @@ import 'package:material_color_generator/material_color_generator.dart';
 import './screens/meal_details_screen.dart';
 import './screens/category_meals_screen.dart';
 import './screens/categories_screen.dart';
+import './screens/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,8 +36,8 @@ class MyApp extends StatelessWidget {
           secondary: const Color(0xFFFC6753),
         ),
       ),
-      home: const CategoriesScreen(),
       routes: {
+        '/': (ctx) => const TabsScreen(),
         CategoryMealsScreen.route: (ctx) => const CategoryMealsScreen(),
         MealDetailsScreen.route: (ctx) => const MealDetailsScreen(),
       },
