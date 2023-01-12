@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/categories_screen.dart';
 
+import './categories_screen.dart';
+import '../widgets/main_drawer.dart';
 import './favorites_screen.dart';
 
 class Page {
@@ -36,6 +37,7 @@ class _BottomTabsScreenState extends State<BottomTabsScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex].title),
       ),
+      drawer: const MainDrawer(),
       body: _pages[_selectedPageIndex].page,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
