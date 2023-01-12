@@ -4,7 +4,8 @@ import 'package:material_color_generator/material_color_generator.dart';
 import './screens/meal_details_screen.dart';
 import './screens/category_meals_screen.dart';
 import './screens/categories_screen.dart';
-import './screens/tabs_screen.dart';
+import './screens/bottom_tabs_screen.dart';
+// import './screens/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,11 +34,11 @@ class MyApp extends StatelessWidget {
       title: 'DeliMeals',
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
-          secondary: const Color(0xFFFC6753),
+          secondary: const Color(0xFF331410),
         ),
       ),
       routes: {
-        '/': (ctx) => const TabsScreen(),
+        '/': (ctx) => const BottomTabsScreen(),
         CategoryMealsScreen.route: (ctx) => const CategoryMealsScreen(),
         MealDetailsScreen.route: (ctx) => const MealDetailsScreen(),
       },
